@@ -7,6 +7,7 @@ const { default: mongoose } = require("mongoose");
 const { paymentSuccessEmail } = require("../mail/templates/paymentSuccessEmail");
 const crypto = require("crypto");
 const CourseProgress = require("../models/CourseProgress");
+require("dotenv").config();
 
 //initiate the razorpay order
 exports.capturePayment = async(req, res) => {
@@ -57,7 +58,7 @@ exports.capturePayment = async(req, res) => {
     }
     catch(error) {
         console.log(error);
-        return res.status(500).json({success:false, mesage:"Could not Initiate Order"});
+        return res.status(402).json({success:false, mesage:"Could not Initiate Order"});
     }
 
 }
